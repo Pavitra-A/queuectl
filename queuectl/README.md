@@ -7,7 +7,7 @@ Tech stack: **Python**
 
 ---
 
-## 🎯 Overview
+## Overview
 
 `queuectl` is a CLI-based background job processing system. It lets you:
 
@@ -19,7 +19,7 @@ Tech stack: **Python**
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Python 3.8**
 - **Typer** – CLI framework
@@ -28,7 +28,7 @@ Tech stack: **Python**
 
 ---
 
-## ⚙️ Setup
+## Setup
 
 ```bash
 git clone https://github.com/<your-username>/queuectl.git
