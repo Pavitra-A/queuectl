@@ -67,6 +67,31 @@ Stores permanently failed jobs after all retries have been exhausted.
 
 ---
 
+## **Usage**
+
+Follow these steps to run and test the QueueCTL system:
+
+```bash
+# 1️. Initialize the database
+python -m queuectl.cli init
+
+# 2️. Enqueue a new job
+python -m queuectl.cli enqueue --type print_message --payload '{"msg": "Hello from QueueCTL!"}'
+
+# 3️. Start the worker to process jobs
+python -m queuectl.cli worker
+
+# 4️. List all jobs and their statuses
+python -m queuectl.cli list
+
+# 5️. View jobs in the Dead Letter Queue (DLQ)
+python -m queuectl.cli dlq list
+
+# 6️. Retry a specific DLQ job
+python -m queuectl.cli dlq retry <job_id>
+
+---
+
 ## **Tech Stack**
 
 | Component | Technology |
