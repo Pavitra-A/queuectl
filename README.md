@@ -91,10 +91,10 @@ python -m queuectl.cli dlq list
 
 # 6. Retry a specific DLQ job
 python -m queuectl.cli dlq retry <job_id>
-
+```
 ---
 
-## 🧰 **Tech Stack**
+## **Tech Stack**
 
 | Component | Technology |
 |------------|-------------|
@@ -106,7 +106,7 @@ python -m queuectl.cli dlq retry <job_id>
 
 ---
 
-## 🔍 **Relevant Inferences**
+## **Conslusion**
 
 1. The retry mechanism follows **exponential backoff**, meaning each failed job’s next attempt is delayed progressively longer (e.g., 5s → 10s → 20s).  
    This reduces load and avoids immediate re-failure loops.
