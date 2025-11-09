@@ -91,3 +91,36 @@ python -m queuectl.cli dlq list
 
 # 6. Retry a specific DLQ job
 python -m queuectl.cli dlq retry <job_id>
+
+---
+
+## 🧰 **Tech Stack**
+
+| Component | Technology |
+|------------|-------------|
+| **Programming Language** | Python 3.8+ |
+| **CLI Framework** | [Typer](https://typer.tiangolo.com/) |
+| **Database** | SQLite3 |
+| **Logging** | Python’s built-in `logging` module |
+| **Standard Libraries** | `datetime`, `json`, `time`, `threading`, `sqlite3` |
+
+---
+
+## 🔍 **Relevant Inferences**
+
+1. The retry mechanism follows **exponential backoff**, meaning each failed job’s next attempt is delayed progressively longer (e.g., 5s → 10s → 20s).  
+   This reduces load and avoids immediate re-failure loops.
+
+2. Jobs that exceed their retry limits are moved to the **DLQ**, preventing data loss while allowing later inspection and reprocessing.
+
+3. The CLI-based design (via **Typer**) ensures the system is **developer-friendly**, easy to integrate with scripts or cron jobs.
+
+4. **Structured logging** was implemented as a bonus feature — every worker action is timestamped, making debugging and monitoring straightforward.
+
+5. The overall architecture can be easily extended to support:
+   - Multiple concurrent workers  
+   - Job prioritization  
+   - Scheduled (delayed) jobs  
+   - Integration with external message brokers  
+
+---
